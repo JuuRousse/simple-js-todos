@@ -5,8 +5,6 @@ const alertMessage = document.querySelector('#alert-message');
 const alertMessageText = document.querySelector('#alert-message-text');
 const TWO_SECOUNDS = 2000;
 
-
-
 const TODOS = 'todos';
 const rawTodos = localStorage.getItem(TODOS);
 if (!rawTodos) {
