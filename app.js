@@ -1,9 +1,10 @@
-const modifyItemInput = document.querySelector('#input-todo');
+const inputTodo = document.querySelector('#input-todo');
 const addTodoBtn = document.querySelector('.btn-add');
 const listTweets = document.querySelector('#list');
 const alertMessage = document.querySelector('#alert-message');
 const alertMessageText = document.querySelector('#alert-message-text');
 const TWO_SECOUNDS = 2000;
+
 
 
 const TODOS = 'todos';
@@ -55,7 +56,7 @@ const renderTodosList = (todos) => {
 
     checkboxes.forEach((checkbox) => {
         checkbox.addEventListener('click', (event) => {
-            const value = event.target.parentNode.parentNode.querySelector('span').innerText;
+            const value = event.target.parentNode.parentNode.querySelector('.todo-text').innerText;
 
             const checkedTodos = getCheckedTodos();
 
@@ -73,7 +74,7 @@ const renderTodosList = (todos) => {
 
     btnsRemoveTweet.forEach((btn) => {
         btn.addEventListener('click', (event) => {
-            const value = event.target.parentNode.parentNode.querySelector('span').innerText;
+            const value = event.target.parentNode.querySelector('.todo-text').innerText;
             const resultTodos = todos.filter((item) => {
                 return item.trim() !== value.trim();
             })
@@ -89,15 +90,11 @@ const renderTodosList = (todos) => {
             renderTodosList(resultTodos);
         })
     })
-
 }
 
 renderTodosList(getTodos());
 
-addTodoBtn.addEventListener('click', (event) => {
-    event.preventDefault();
-    const value = modifyItemInput.value;
-
+const addNewTodo = (value) => {
     const todos = getTodos();
     const isTheSame = todos.some((item) => {
         return value === item;
@@ -123,6 +120,20 @@ addTodoBtn.addEventListener('click', (event) => {
 
         renderTodosList(todos);
 
-        modifyItemInput.value = '';
+        inputTodo.value = '';
     }
+}
+
+inputTodo.addEventListener('keydown', (event) => {
+    if (event.keyCode === 13) {
+        const value = event.target.value;
+        addNewTodo(value);
+    }
+})
+
+addTodoBtn.addEventListener('click', (event) => {
+    event.preventDefault();
+    const value = inputTodo.value;
+
+    addNewTodo(value);
 })
