@@ -1,0 +1,140 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(90deg, #29323c 0%, #485563 100%);
+}
+
+button {
+  border: 1px solid white;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #ffffff;
+  border-radius: 3px;
+  color: rgb(54, 54, 54);
+  font-size: 16px;
+}
+
+button:hover {
+  border: 1px solid grey;
+  transition: 0.5s;
+}
+
+.container {
+  margin: 30px auto;
+  max-width: 500px;
+  padding: 20px;
+  min-height: 300px;
+  background: linear-gradient(118.38deg, #818f9f -4.6%, #485563 200.44%);
+  box-shadow: -8px -8px 20px #2a333d, 10px 7px 20px #475462;
+  border-radius: 30px;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0;
+  font-size: 45px;
+  color: rgb(0, 255, 242);
+}
+
+#input-todo {
+  border: 1px solid white;
+  border-radius: 3px;
+  flex-basis: 75%;
+  padding: 5px 10px;
+}
+
+#input-todo:focus {
+  outline: 1px solid grey;
+}
+
+.add-todos {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-add {
+  flex-basis: 20%;
+  font-family: "Roboto", sans-serif;
+}
+
+#list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5px;
+  font-size: 18px;
+}
+
+.todo-item .todo-text {
+  display: flex;
+  align-items: center;
+  max-width: 60%;
+  padding-left: 5px;
+}
+
+.todo-item-inner {
+  display: flex;
+  width: 100%;
+}
+
+.checkbox {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 4px;
+  border: 1px solid #ffffff;
+  width: 18px;
+  height: 19px;
+  cursor: pointer;
+  position: relative;
+}
+.checkbox::before {
+  content: "🗸";
+  color: rgb(0, 255, 242);
+  font-size: 30px;
+  position: absolute;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, 50%);
+  opacity: 0;
+}
+.checkbox:checked::before {
+  opacity: 1;
+}
+
+.btn-remove {
+  background-color: transparent;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+#alert-message {
+  position: absolute;
+  background-color: rgb(216, 216, 216);
+  padding: 20px 20px;
+  top: 5px;
+  left: 5px;
+}
